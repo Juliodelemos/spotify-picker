@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Adicionar Playlist{% endblock %}
+
+{% block content %}
+    <h1>Adicionar Playlist</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+        {% endbuttons %}
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Playlists{% endblock %}
+
+{% block content %}
+    <h1>Playlists</h1>
+
+    {% if object_list %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Nome</th>
+                    <th>Adicionada em</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in object_list  %}
+                    <tr>
+                        <td>{{ p.get_type_display }}</td>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.date_add }}</td>
+                        <td>Em breve - excluir, atualizar, editar tipo</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div>Você ainda não adicionou nenhuma playlist.</div>
+    {% endif %}
+{% endblock %}
